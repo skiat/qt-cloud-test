@@ -20,3 +20,6 @@ SOURCES += main.cpp \
 
 HEADERS += \
     FakeHTTPServer.h
+
+OTHER_FILES += \
+    Procfile
