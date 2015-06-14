@@ -3,16 +3,28 @@
 
 #include <QTcpServer>
 
-class FakeHTTPServer : public QTcpServer
+class FakeHTTPServer : public QObject
 {
     Q_OBJECT
+private:
+    QTcpServer server;
+    int socketcounts;
+
 public:
-    explicit FakeHTTPServer(QObject *parent = 0);
+    explicit FakeHTTPServer(quint16 listeningPort, QObject *parent = 0);
 
 signals:
 
 public slots:
+    // handle new qtcpsocket
+    void haveNewClient();
 
+    // destroy qtcpsocket
+    void endConnection(QTcpSocket *zombie);
+    void decrement();
+
+    // make fake answer
+    void readAndRespond();
 };
 
 #endif // FKEHTTPSERVER_H

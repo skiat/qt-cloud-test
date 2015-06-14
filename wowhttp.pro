@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core
-
+QT       += network
 QT       -= gui
 
 TARGET = wowhttp
@@ -15,4 +15,8 @@ CONFIG   -= app_bundle
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    FakeHTTPServer.cpp
+
+HEADERS += \
+    FakeHTTPServer.h
