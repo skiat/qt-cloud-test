@@ -60,10 +60,10 @@ void FakeHTTPServer::readAndRespond()
     QByteArray allRequest = tmpSock->readAll();
 
     // make HTTP Header
-    QByteArray response = "HTTP/1.0 200 OK\n\r"
-            "Content-Type: text/plain; charset=UTF-8\n\r"
-            "Content-length: " + QByteArray::number(allRequest.size()) + "\n\r"
-            "\n\r";
+    QByteArray response = "HTTP/1.0 200 OK\r\n"
+            "Content-Type: text/plain; charset=UTF-8\r\n"
+            "Content-Length: " + QByteArray::number(allRequest.size()) + "\r\n"
+            "\r\n";
 
     response.append(allRequest);
 
